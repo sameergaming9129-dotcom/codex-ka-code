@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatting App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="joinModal" class="modal">
+      <form id="joinForm" class="card">
+        <h1>Join Chat</h1>
+        <label>
+          Username
+          <input id="username" maxlength="24" required placeholder="e.g., Alex" />
+        </label>
+        <label>
+          Room
+          <input id="roomId" maxlength="32" required value="general" />
+        </label>
+        <button type="submit">Start Chatting</button>
+      </form>
+    </div>
+
+    <main class="app">
+      <aside class="sidebar">
+        <h2>Room</h2>
+        <p id="roomLabel">#general</p>
+        <h3>Online</h3>
+        <ul id="onlineUsers"></ul>
+      </aside>
+
+      <section class="chatArea">
+        <header>
+          <h2>WhatsApp-style Chat</h2>
+        </header>
+        <div id="messages" class="messages"></div>
+        <form id="messageForm" class="composer">
+          <input id="messageInput" placeholder="Type a message" maxlength="500" autocomplete="off" />
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

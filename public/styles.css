@@ -1,0 +1,153 @@
+:root {
+  color-scheme: light;
+  --bg: #efeae2;
+  --panel: #f8f5f2;
+  --chat-bg: #e5ddd5;
+  --primary: #005c4b;
+  --bubble-self: #d9fdd3;
+  --bubble-other: #ffffff;
+  --text: #1f2937;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+}
+
+.sidebar {
+  background: var(--panel);
+  padding: 20px;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar h2,
+.sidebar h3 {
+  margin: 0 0 8px;
+}
+
+#onlineUsers {
+  padding-left: 16px;
+  margin: 8px 0 0;
+}
+
+.chatArea {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: var(--chat-bg);
+}
+
+header {
+  padding: 16px;
+  background: var(--primary);
+  color: white;
+}
+
+.messages {
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  max-width: 70%;
+  border-radius: 10px;
+  padding: 8px 12px;
+  line-height: 1.35;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+}
+
+.message.self {
+  align-self: flex-end;
+  background: var(--bubble-self);
+}
+
+.message.other {
+  align-self: flex-start;
+  background: var(--bubble-other);
+}
+
+.meta {
+  font-size: 12px;
+  color: #667085;
+  margin-top: 6px;
+}
+
+.system {
+  text-align: center;
+  font-size: 13px;
+  color: #475467;
+}
+
+.composer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  padding: 12px;
+  background: var(--panel);
+}
+
+input,
+button {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(10, 10, 10, 0.45);
+  z-index: 20;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: min(90vw, 360px);
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 780px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
